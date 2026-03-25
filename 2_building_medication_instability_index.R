@@ -124,7 +124,7 @@ glipizide_readmit_plot <- diabetic_clean |>
   ) +
   theme_minimal()
 
-ggsave("additional_analyses/plots/glipizide_readmit_plot.png", plot = glipizide_readmit_plot, width = 6.5, height = 8)
+ggsave("plots/glipizide_readmit_plot.png", plot = glipizide_readmit_plot, width = 6.5, height = 8)
 
 
 ### glyburide----
@@ -179,7 +179,7 @@ insulin_readmit_plot <- diabetic_clean |>
   ) +
   theme_minimal()
 
-ggsave("additional_analyses/plots/insulin_readmit_plot.png", plot = insulin_readmit_plot, width = 6.5, height = 8)
+ggsave("plots/insulin_readmit_plot.png", plot = insulin_readmit_plot, width = 6.5, height = 8)
 
 
 ### metformin----
@@ -237,7 +237,7 @@ pioglitazone_readmit_plot <- diabetic_clean |>
   ) +
   theme_minimal()
 
-ggsave("additional_analyses/plots/pioglitazone_readmit_plot.png", plot = pioglitazone_readmit_plot, width = 6.5, height = 8)
+ggsave("plots/pioglitazone_readmit_plot.png", plot = pioglitazone_readmit_plot, width = 6.5, height = 8)
 
 
 ### rosiglitazone---- 
@@ -265,7 +265,7 @@ rosiglitazone_readmit_plot <- diabetic_clean |>
   ) +
   theme_minimal()
 
-ggsave("additional_analyses/plots/rosiglitazone_readmit_plot.png", plot = rosiglitazone_readmit_plot, width = 6.5, height = 8)
+ggsave("plots/rosiglitazone_readmit_plot.png", plot = rosiglitazone_readmit_plot, width = 6.5, height = 8)
 
 ## Multiple Medication Risk Assessment----
 # medications of interest
@@ -528,7 +528,7 @@ insulin_x_metformin_readmit_plot <- insulin_metformin |>
   ) +
   theme_minimal()
 
-ggsave("additional_analyses/plots/insulin_x_metformin_readmit_plot.png", plot = insulin_x_metformin_readmit_plot, width = 6.5, height = 8)
+ggsave("plots/insulin_x_metformin_readmit_plot.png", plot = insulin_x_metformin_readmit_plot, width = 6.5, height = 8)
 
 # metformin_glyburide plot
 cols <- c("Both Changed" = "#8DCE8D", "Metformin Changed" = "#4CB04C", "Glyburide Changed" = "#317231", "Both Steady" = "#204D20")
@@ -570,7 +570,7 @@ glyburide_x_metformin_readmit_plot <- metformin_glyburide |>
   ) +
   theme_minimal()
 
-ggsave("additional_analyses/plots/glyburide_x_metformin_readmit_plot.png", plot = glyburide_x_metformin_readmit_plot, width = 6.5, height = 8)
+ggsave("plots/glyburide_x_metformin_readmit_plot.png", plot = glyburide_x_metformin_readmit_plot, width = 6.5, height = 8)
 
 # old plots -----
 # cols <- c("Changed × Changed" = "#8DCE8D", "One Changed" = "#4CB04C", "Steady × Steady" = "#317231")
@@ -610,7 +610,7 @@ ggsave("additional_analyses/plots/glyburide_x_metformin_readmit_plot.png", plot 
 #   ) +
 #   theme_minimal()
 # 
-# ggsave("additional_analyses/plots/insulin_x_glyburide_readmit_plot.png", plot = insulin_x_glyburide_readmit_plot, width = 6.5, height = 8)
+# ggsave("plots/insulin_x_glyburide_readmit_plot.png", plot = insulin_x_glyburide_readmit_plot, width = 6.5, height = 8)
 # 
 # 
 # # insulin x glimepiride
@@ -648,7 +648,7 @@ ggsave("additional_analyses/plots/glyburide_x_metformin_readmit_plot.png", plot 
 #   ) +
 #   theme_minimal()
 # 
-# ggsave("additional_analyses/plots/insulin_x_glimepiride_readmit_plot.png", plot = insulin_x_glimepiride_readmit_plot, width = 6.5, height = 8)
+# ggsave("plots/insulin_x_glimepiride_readmit_plot.png", plot = insulin_x_glimepiride_readmit_plot, width = 6.5, height = 8)
 # 
 # # insulin x metformin
 # insulin_x_metformin_readmit_plot <- diabetic_clean |>
@@ -685,7 +685,7 @@ ggsave("additional_analyses/plots/glyburide_x_metformin_readmit_plot.png", plot 
 #   ) +
 #   theme_minimal()
 # 
-# ggsave("additional_analyses/plots/insulin_x_metformin_readmit_plot.png", plot = insulin_x_metformin_readmit_plot, width = 6.5, height = 8)
+# ggsave("plots/insulin_x_metformin_readmit_plot.png", plot = insulin_x_metformin_readmit_plot, width = 6.5, height = 8)
 # 
 # 
 # # metformin x glyburide
@@ -723,7 +723,7 @@ ggsave("additional_analyses/plots/glyburide_x_metformin_readmit_plot.png", plot 
 #   ) +
 #   theme_minimal()
 # 
-# ggsave("additional_analyses/plots/metformin_x_glyburide_readmit_plot.png", plot = metformin_x_glyburide_readmit_plot, width = 6.5, height = 8)
+# ggsave("plots/metformin_x_glyburide_readmit_plot.png", plot = metformin_x_glyburide_readmit_plot, width = 6.5, height = 8)
 
 
 # diabetic_clean |>
