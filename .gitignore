@@ -48,6 +48,8 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+diabetes-readmission-mii.Rproj
+.DS_Store
 
 # data
 data/diabetic_data.csv
