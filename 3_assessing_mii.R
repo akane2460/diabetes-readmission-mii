@@ -49,6 +49,96 @@ diabetic_mii |>
 
 cols <- c("Not Flagged" = "#4CB04C", "Flagged" = "#B04C4C")
 
+flagged_unflagged_mii_plot <- diabetic_mii |> 
+  mutate(
+    mii_exists = case_when(
+      medication_instability_index != 0 ~ "Flagged",
+      medication_instability_index == 0 ~ "Not Flagged",
+    )) |> 
+  group_by(mii_exists) |> 
+  summarize(
+    readmit_rate = mean(readmitted == "YES", na.rm = TRUE),
+    n = n(),
+    .groups = "drop"
+  ) |> 
+  ggplot(aes(x = mii_exists, y = n, fill = mii_exists)) +
+  geom_col() +
+  geom_text(
+    aes(label = paste0("Count: ", n)),
+    vjust = -0.5,
+    size = 4
+  ) +
+  scale_fill_manual(values = cols, guide = "none") +
+  labs(
+    title = "MII Flagged vs. Unflagged Patients",
+    x = "MII Flag",
+    y = "Patient Count"
+  ) +
+  theme_minimal()
+
+ggsave("plots/flagged_unflagged_mii_plot.png", plot = flagged_unflagged_mii_plot)
+
+
+
+diabetic_mii |> 
+  mutate(
+    mii_exists = case_when(
+      medication_instability_index != 0 ~ "Flagged",
+      medication_instability_index == 0 ~ "Not Flagged",
+    )) |> 
+  filter(mii_exists == "Flagged") |> 
+  mutate(
+    medicare_eligible = ifelse(
+      age %in% c("[60-70)", "[70-80)", "[80-90)", "[90-100)"), TRUE, FALSE 
+    )
+  ) |> 
+group_by(medicare_eligible) |> 
+  summarize(
+    readmit_rate = mean(readmitted == "YES", na.rm = TRUE),
+    n = n(),
+    pct_of_flagged = n / 28535,
+    .groups = "drop"
+  ) 
+
+
+
+diabetic_mii |>
+  mutate(
+    mii_flagged = ifelse(medication_instability_index != 0,
+                         "Flagged", "Not Flagged"),
+    medicare_eligible = age %in% c("[70-80)", "[80-90)", "[90-100)")
+  ) |>
+  group_by(medicare_eligible, mii_flagged) |>
+  summarize(
+    readmit_rate = mean(readmitted == "YES", na.rm = TRUE),
+    n = n(),
+    .groups = "drop"
+  )
+
+
+# |
+  # >
+  ggplot(aes(x = mii_exists, y = n, fill = mii_exists)) +
+  geom_col() +
+  geom_text(
+    aes(label = paste0("Count: ", n)),
+    vjust = -0.5,
+    size = 4
+  ) +
+  scale_fill_manual(values = cols, guide = "none") +
+  labs(
+    title = "MII Flagged vs. Unflagged Patients",
+    x = "MII Flag",
+    y = "Patient Count"
+  ) +
+  theme_minimal()
+
+
+
+
+
+
+
 readmission_flagged_unflagged_mii_plot <- diabetic_mii |> 
   mutate(
     mii_exists = case_when(
